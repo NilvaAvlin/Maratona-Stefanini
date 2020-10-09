@@ -61,13 +61,21 @@
     <!-- ### ESPAÇO ALERTAS ### -->
     <div id="alertas" class="container" ng-show="listaMensagens.length">
         <div ng-repeat="msg in listaMensagens" class="alert alert-{{msg.tipo}}" role="alert">
-            {{msg.text}}
+            {{msg.text | limitTo : 3 : 5}}
             <button type="button" class="close" aria-label="Close"
                     ng-click="listaMensagens.splice($index, 1)">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
     </div>
+    {{vm.teste | capitalize}}
+<!-- <div class="container">
+        <input type="text" ng-model="data">
+        <div ng-show="hide">
+            <input type="text" ng-model="data">
+        </div>
+        <button ng-click="hide =!hide">T</button>
+    </div>-->
 
     <!-- ### HOME PAGE ### -->
     <div class="container" ng-if="vm.logado">
